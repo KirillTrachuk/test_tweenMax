@@ -3,6 +3,8 @@
 @import './common/index_2'
 @import './common/index_3'
 @import './common/index_4'
+@import './common/button'
+
 //start here
 
 
@@ -12,8 +14,9 @@ html, body
     padding: 0
     width: 100%
     height: 100vh
-    background: url(../image/hero.jpg)
+    background: url(../image/background.png)
     background-size: cover
+    background-repeat: no-repeat
 
 .header
     position: absolute
@@ -222,8 +225,6 @@ html, body
     50%,100%
         bottom: 100%
         
-                
-
 .container
     width: 100%
     height: 100vh
@@ -235,17 +236,19 @@ html, body
     animation: slide-out-container 4s cubic-bezier(0.97, 0.01, 0.36, 0.99) 2.8s
     animation-fill-mode: forwards
 
-.cursor
-    position: fixed
-    width: 20px
-    height: 20px
-    border-radius: 50%
-    background: #fff
-    transition: 0.1s
-    transform: translate(-50%,-50%)
-    pointer-events: none
-    mix-blend-mode: difference
-    z-index: 10
+// .cursor
+//     position: fixed
+//     width: 20px
+//     height: 20px
+//     border-radius: 50%
+//     background: #fff
+//     transition: 0.1s
+//     transform: translate(-50%,-50%)
+//     pointer-events: none
+//     mix-blend-mode: difference
+//     z-index: 10
+
+
 
 .text-wrapper
     color: white
@@ -346,3 +349,128 @@ html, body
         height: 100vh
     100%
         height: 0%
+
+.menu-open
+    color: #fff
+
+.menu-open, .menu-close
+    position: absolute
+    top: 30px
+    right: 40px
+    padding: gem(40)
+    font-size: gem(120)
+    cursor: pointer
+
+.socials
+    position: absolute
+    bottom: 10px
+    right: 0
+    margin: gem(40) gem(100)
+    span
+        text-transform: uppercase
+        margin: 0 20px
+.nav-container
+    position: fixed
+    left: -100%
+    width: 100%
+    height: 100vh
+    background: #fff
+    z-index: 5
+.menu__item
+    position: relative
+    padding: 0 6vw
+    &-link 
+        display: inline-block
+        cursor: pointer
+        position: relative
+        transition: opacity 0.4s
+        text-decoration: none
+        color: #000
+        &::before
+            all: initial
+            position: absolute
+            bottom: 60%
+            left: 0
+            pointer-events: none
+        &:hover
+            transition-duration: 0.1s
+            opacity: 0
+    &-img
+        z-index: 2
+        pointer-events: none
+        position: absolute
+        height: 50vh
+        max-height: gem(6000)
+        opacity: 0
+        left: 40%
+        top: 20%
+        transform: scale(0)
+        width: initial
+.menu__item-link:hover + .menu__item-img
+    opacity: 1
+    transform: scale(1)
+    transition: all .4s
+.menu
+    padding: 10vh 0 25vh
+    --offset: 20vw
+    --move--initial: calc(-25% + var(--offset))
+    --move-final: calc(-50% + var(--offset))
+    font-size: 7vw
+.marquee
+    position: absolute
+    top: 0
+    left: 0
+    overflow: hidden
+    color: rgb(214, 214, 214)
+    pointer-events: none
+.marquee__inner
+    width: fit-content
+    display: flex
+    position: relative
+    opacity: 0
+    transition: all 0.1s
+    transform: translateX(gem(60))
+.menu__item-link:hover ~ .marquee .marquee__inner
+    opacity: 1
+    transform: translateX(gem(0))
+    transition-duration: 0.4s
+.menu__item-link,
+.marquee 
+    span 
+        white-space: nowrap
+        font-size: 7vw
+        padding: 0 1vw
+        line-height: 1.15
+.marquee
+    span
+        font-style: italic
+
+
+.cursor
+    pointer-events: none
+    position: fixed
+    padding: 0.3rem
+    background-color: #fff
+    border-radius: 50%
+    mix-blend-mode: difference
+    transition: transform 0.3s ease
+
+
+.hover-this
+    transition: all 0.3s ease
+    span 
+        display: inline-block
+        font-family: "Monument Extended"
+        font-weight: 300
+        color: #fff
+        font-size: 36px
+        text-transform: uppercase
+        pointer-events: none
+        transition: transform 0.1s linear
+    &:hover ~ .cursor
+            transform: translate(-50%, -50%) scale(8)
+
+.nav-container
+    .hover-this
+        span
+            color: #000

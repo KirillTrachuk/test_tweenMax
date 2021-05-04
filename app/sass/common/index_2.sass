@@ -1,6 +1,7 @@
 .body_2
     background: url(../image/hero.jpg)
     background-size: cover
+    height: 100vh
 
 img
     width: 100%
@@ -34,13 +35,13 @@ img
     line-height: 80px
     z-index: 1
 
-.menu
-    position: fixed
-    color: #6adb9d
-    right: 2em
-    top: 4px
-    line-height: 80px
-    z-index: 1
+// .menu
+//     position: fixed
+//     color: #6adb9d
+//     right: 2em
+//     top: 4px
+//     line-height: 80px
+//     z-index: 1
 
 .menu ion-icon
     font-size: 24px
@@ -149,6 +150,18 @@ p
     z-index: 2
     width: 40%
     opacity: 0.7
+
+.cursor
+    position: fixed
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    background: #fff
+    transition: 0.1s
+    transform: translate(-50%,-50%)
+    pointer-events: none
+    mix-blend-mode: difference
+    z-index: 10
 
 .ringOne img
     animation: rotateRing 2s linear infinite
